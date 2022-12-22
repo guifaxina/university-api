@@ -1,6 +1,6 @@
 import express from "express";
 
-import mongodbConnection from "./database/mongodb-settings";
+import mongodbConnection from "./databases/mongodb-settings";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
