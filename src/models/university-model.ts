@@ -3,12 +3,12 @@ import mongoose from "mongoose";
 const universitySchema = new mongoose.Schema({
   alpha_two_code: { 
     type: String, 
-    require: true
+    required: true
   }, 
   
   name: { 
     type: String, 
-    require: true
+    required: true
   },
   
   web_pages: [{ 
@@ -18,17 +18,17 @@ const universitySchema = new mongoose.Schema({
   
   "state-province": { 
     type: String || null, 
-    require: true
+    required: true
   },
   
   domains: [{ 
     type: String || null, 
-    require: true
+    required: true
   }],
   
   country: { 
     type: String,
-    require: true, 
+    required: true, 
     lowercase: true 
   }
 });
