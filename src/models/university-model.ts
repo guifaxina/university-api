@@ -5,13 +5,13 @@ const universitySchema = new mongoose.Schema({
   
   name: String,
   
-  web_pages: [],
+  web_pages: [{ type: String }],
   
   "state-province": String || null,
   
-  domains: [],
+  domains: [{ type: String }],
   
-  country: String,
+  country: { type: String, lowercase: true }
 });
 
 const UniversityModel = mongoose.model("University", universitySchema);
