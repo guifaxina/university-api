@@ -1,6 +1,6 @@
 import mongodbConnection from "./databases/mongodb-settings";
 import { app } from "./utils/server";
-import populateDb from "./routes/populate-db";
+import populateDb from "./utils/populate-db";
 
 const PORT = process.env.PORT || 3000;
 
@@ -9,4 +9,4 @@ const PORT = process.env.PORT || 3000;
   populateDb.populate();
 })();
 
-const server = app.listen(PORT, async () => console.log(`Server running http://localhost:${PORT}`));
+export const server = app.listen(PORT, async () => console.log(`Server running http://localhost:${PORT}`));
