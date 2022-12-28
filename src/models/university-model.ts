@@ -21,10 +21,10 @@ const universitySchema = new mongoose.Schema({
     require: true
   },
   
-  domains: { 
+  domains: [{ 
     type: String || null, 
     require: true
-  },
+  }],
   
   country: { 
     type: String,
