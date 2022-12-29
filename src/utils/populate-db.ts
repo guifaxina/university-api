@@ -1,6 +1,5 @@
 import axios from "axios";
-import UniversityModel from "../models/university-model";
-import IUniversity from "../interfaces/university";
+import { InsertUnis } from "../controller/universities-controller";
 
 class PopulateDatabase {
 
@@ -19,28 +18,6 @@ class PopulateDatabase {
         this.insertUnis.insert(unis);
       } 
     }
-  }
-}
-
-export class InsertUnis {
-  public async insert (uni: IUniversity): Promise<unknown> {
-    const newUniversity = new UniversityModel({
-      
-      alpha_two_code: uni.alpha_two_code,
-      
-      name: uni.name,
-      
-      web_pages: uni.web_pages,
-      
-      "state-province": uni["state-province"],
-      
-      domains: uni.domains,
-      
-      country: uni.country
-      
-    });
-    const response = await newUniversity.save();
-    return response;
   }
 }
 
