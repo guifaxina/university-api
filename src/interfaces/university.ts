@@ -5,7 +5,7 @@ interface IUniversity {
   
   web_pages: string[];
   
-  "state-province": string | null;
+  "state-province"?: string;
   
   domains: string[];
   
