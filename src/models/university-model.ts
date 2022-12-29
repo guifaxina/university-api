@@ -17,8 +17,7 @@ const universitySchema = new mongoose.Schema({
   }],
   
   "state-province": { 
-    type: String || null, 
-    required: true
+    type: String || undefined 
   },
   
   domains: [{ 
