@@ -20,7 +20,7 @@ class UniversityController {
       return res.status(404).json({ status: "failed", message: "Error, country not found." });
   }
 
-  public async listUniversitiesById(req: Request, res: Response): Promise<Response> {
+  public async listUniversityById(req: Request, res: Response): Promise<Response> {
     const { id } = req.params;
     
     try {
@@ -44,6 +44,29 @@ class UniversityController {
     const response = await insertUnis.insert(university);
     
     return res.status(201).json({ status: "success", message: "Successfully registered new university.", data: response });
+  }
+
+  public async updateUniversity(req: Request, res: Response) {
+    const { id } = req.params;
+    
+    const { web_pages, name, domains } = req.body;
+    
+    try {
+      const response = await UniversityModel.findByIdAndUpdate(id, { web_pages, name, domains }, { new: true });
+      if (response) 
+        return res.status(200).json({ status: "success", message: "University updated.", data: response });
+      
+      else 
+        return res.status(404).json({ status: "error", message: "University not found." });
+    } catch (error) {
+      if (error instanceof Error) {
+        if (error.name === "CastError") 
+          return res.status(400).json({ status: "error", name: error.name, message: error.message, description: "Check syntax and types and try again." });
+        
+        else 
+          return res.status(500).json({ status: "error", name: error.name, message: error.message });
+      }
+    }
   }
 }
 
