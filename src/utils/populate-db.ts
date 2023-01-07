@@ -1,5 +1,5 @@
 import axios from "axios";
-import { InsertUnis } from "../controller/universities-controller";
+import { InsertUnis } from "../controllers/universities-controller";
 
 class PopulateDatabase {
 
