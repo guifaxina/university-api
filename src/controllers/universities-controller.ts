@@ -68,6 +68,20 @@ class UniversityController {
       }
     }
   }
+
+  public async deleteUniversity(req: Request, res: Response) {
+    const { id } = req.params;
+
+    const response = await UniversityModel.findByIdAndDelete(id, { new: true });
+    
+    if (response) 
+      return res.status(200).json({ status: "success", message: "Successfully deleted University.", data: response });
+    
+    if (response === null)
+      return res.status(404).json({ status: "error", message: "University does not exist."});
+
+    return res.status(500).json({ status: "error", message: "Oops something went wrong." });
+  }
 }
 
 export class InsertUnis {
