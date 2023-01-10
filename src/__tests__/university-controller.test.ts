@@ -123,7 +123,6 @@ describe("universities route", () => {
         expect(response.status).toBe(404);
 
       });
-
     });
 
     describe("given an wrong type to a property", () => {
@@ -133,14 +132,29 @@ describe("universities route", () => {
         const response = await createNewUniversity();
         const id = response.body.data._id;
 
-        const updatedUniversity = await supertest(app).put(`/universities/${id}`).send({ web_pages: {} });
-
-        expect(updatedUniversity.status).toBe(400);
+        supertest(app).put(`/universities/${id}`).send({ web_pages: {} }).expect(400);
 
       });
-
     });
-
   });
+
+  describe("DELETE /universities/:id", () => {
+
+    describe("given the id of an existent university", () => {
+
+      it("should return a 200 and the university deleted", async () => {
+
+        const response = await createNewUniversity();
+        const id = response.body.data._id;
+
+        const deletedUniversity = await supertest(app).delete(`/universities/${id}`);
+
+        expect(deletedUniversity.status).toBe(200);
+        expect(deletedUniversity.body.data).not.toBe(null);
+
+      });
+    });
+  });
+
 });
 
