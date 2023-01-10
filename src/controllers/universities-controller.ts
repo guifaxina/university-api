@@ -5,11 +5,14 @@ import UniversityModel from "../models/university-model";
 class UniversityController {
   public async listUniversities(req: Request, res: Response): Promise<Response | void> {
     const { search } = req.query;
+    const offset = Number(req.query.offset) || 5;
+    const page = Number(req.query.page) - 1 || 0;
     const projection = "_id name country state-province";
 
     if (!search) {
       try {
-        const findAllUniversities = await UniversityModel.find({}, projection);
+        const findAllUniversities = await UniversityModel.find({}, projection).skip(page * offset).limit(offset);
+        
         if (findAllUniversities.length !== 0)
           return res.status(200).json({ status: "success", message: "Successfully retrieved all universities", data: findAllUniversities });
         
@@ -22,7 +25,8 @@ class UniversityController {
     } 
     
     try {
-      const findUniversitiesFrom = await UniversityModel.find({ country: search }, projection);
+      const findUniversitiesFrom = await UniversityModel.find({ country: search }, projection).skip(page * offset).limit(offset);
+
       if (findUniversitiesFrom.length !== 0) 
         return res.status(200).json({ status: "success", message: `Successfully found all universities from ${search}.`, data: findUniversitiesFrom });
     
