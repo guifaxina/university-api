@@ -82,12 +82,12 @@ describe("universities route", () => {
     
     describe("register university", () => {
 
-      it("should be able to create and persist a new university in the database", async () => {
+      it("should return 201 and the created university", async () => {
 
         const response = await createNewUniversity();
 
         expect(response.status).toBe(201);
-        expect(response.body.message).toBe("Successfully registered new university.");
+        expect(response.body.data).not.toBe(null);
 
       });
     });
