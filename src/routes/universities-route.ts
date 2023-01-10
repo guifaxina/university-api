@@ -1,6 +1,5 @@
 import { Router } from "express";
 import UniversityController from "../controllers/universities-controller";
-import UniversityModel from "../models/university-model";
 
 const router = Router();
 
