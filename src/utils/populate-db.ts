@@ -5,7 +5,7 @@ class PopulateDatabase {
 
   private apiURL = "http://universities.hipolabs.com";
 
-  private countries = ["suriname"];
+  private countries = ["brazil", "argentina", "chile"];
 
   private insertUnis = new InsertUnis();
 
