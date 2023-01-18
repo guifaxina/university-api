@@ -43,4 +43,4 @@ The server will now be running on "http://localhost:3000"
 * Docker
 
 ### Author
-* [Guilherme Faxina](https://github.com/guifaxina)
+* [Guilherme Faxina](https://www.linkedin.com/in/guifaxina/)
