@@ -1,3 +1,5 @@
+# What is the project?
+
 This project is a Populate Script and a RESTful API.
 
 When you run the application, the script will populate the database with all the designated countries, 
