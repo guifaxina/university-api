@@ -31,16 +31,16 @@ The server will now be running on "http://localhost:3000"
 | ------ | -------- | ----------- |
 | GET    | /universities | List all the universities |
 | GET    | /universities/:id | Retrieve university by id |
-| POST   | /universities | Create ew university |
+| POST   | /universities | Create new university |
 | PUT   | /universities/:id | Update university by id |
 | DELETE   | /universities/:id | Delete university by id |
 
 ### Query Parameters 
 | Query Parameter | Description | Default Value |
 | --------------- | ----------- | ------------- |
-| /search?=**country** | List all the universities within that country | - |
-| /page?=**number** | Retrieve countries within that page | - |
-| /offset?=**number** | Sets a threshold of how many universities will be retrieved | 5 |
+| /?search=**country** | List all the universities within that country | - |
+| /?page=**number** | Retrieve countries within that page | - |
+| /?offset=**number** | Sets a threshold of how many universities will be retrieved | 5 |
 
 ### Built with
 * TypeScript
