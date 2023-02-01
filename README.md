@@ -24,7 +24,7 @@ $ cd <folder>
 ```sh
 $ docker compose up && docker compose run -d 
 ```
-The server will now be running on "http://localhost:3000"
+The server will now be running on `http://localhost:3000`
 ### API Endpoints
 
 | Method | Endpoint | Description |
@@ -38,7 +38,7 @@ The server will now be running on "http://localhost:3000"
 ### Query Parameters 
 | Query Parameter | Description | Default Value |
 | --------------- | ----------- | ------------- |
-| /?search=**country** | List all the universities within that country | - |
+| /?search=**country** | List all the universities within the country specified | - |
 | /?page=**number** | Retrieve countries within that page | - |
 | /?offset=**number** | Sets a threshold of how many universities will be retrieved | 5 |
 
